@@ -146,22 +146,21 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
 */
-function removeItem(myGroceryList, removeItem) {
-   var i = myGroceryList.indexOf(removeItem);
-   if (i !== -1) {
-     myGroceryList.splice(i, 1);
-   }
-   return myGroceryList;
- }
+function removeItem(myGroceryList, remove){
+  for (var i = 0; i < myGroceryList.length; i++){
+    if (myGroceryList[i] === remove){
+      myGroceryList.splice(i, 1);
+    }
+  }
+  return myGroceryList;
+}
+removeItem(myGroceryList, 'chips');
 
- function addItem(myGroceryList, addItem) {
-   myGroceryList.push(addItem);
-   return myGroceryList;
- }
-removeItem();
-addItem();
-
-
+function addItem(myGroceryList, add){
+    myGroceryList.push(add);
+  return myGroceryList;
+}
+addItem(myGroceryList, 'beef');
 
 //Next Problem
 
@@ -182,17 +181,17 @@ addItem();
 //Next Problem
 
 
-var numbers = [5, '9', 16, 19, '25', '34', 48];
+var numbers1 = [5, '9', 16, 19, '25', '34', 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
-  function addTen(numbers){
-    for (var i = 0; i < numbers.length; i++){
-      numbers[i] = Number(numbers[i]) + 10;
-    }
-    return numbers;
-  };
-
+function addTen(numbers1){
+  for (var i = 0; i < numbers1.length; i++){
+    numbers1[i] = Number(numbers1[i]) + 10;
+  }
+  return numbers1;
+};
+addTen();
 
 
 //Next Problem
@@ -212,14 +211,14 @@ for(var i = 0; i < num2; i++){
 //Above is some code that adds a random number of values to both arr1 and arr2.
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
-  function longer (arr1, arr2){
+  function longer(arr1, arr2){
     if (arr1.length > arr2.length){
       return arr1;
     }
-    else{
+    else {
       return arr2;
     }
-  };
+  }
 
 
 /*As a continuation of the previous problem, write another function called 'both'.
@@ -229,17 +228,16 @@ for(var i = 0; i < num2; i++){
 */
 
   function both(arr1, arr2){
-    var newArray = [];
+    var arr3 = [];
     for (var i = 0; i < arr1.length; i++){
-      for (var j = 0; j < arr2.length; j++){
+      for (var j = 0; j < arr2.length; i++){
         if (arr1[i] === arr2[j]){
-          newArray.push(arr1[i])
+          arr3.push(arr1[i]);
         }
       }
     }
-    return newArray;
-  };
-
+    return arr3;
+  }
 
 
 
